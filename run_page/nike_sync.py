@@ -29,7 +29,7 @@ BASE_URL = "https://api.nike.com/plus/v3"
 class Nike:
     def __init__(self, access_token):
         self.client = httpx.Client()
-        self.client.headers.update({"Authorization": f"Bearer {access_token}"})
+        self.client.headers.update({"Authorization": f"Bearer {access_token.strip()}"})
 
     def get_activities_before_id(self, activity_id):
         if not activity_id:
